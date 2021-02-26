@@ -22,7 +22,7 @@ router.post('/', checkJWT, async (req, res) => {
     res.status(201).json(product);
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', checkJWT, async (req, res) => {
     const product = await Product.destroy({
         where:{
             id: req.params.id
