@@ -18,7 +18,7 @@ router.post('/', async (req, res)=>{
     }
 
     const token = jwt.sign({id: result.id}, '@tiARA', {expiresIn: '999 years'});
-    res.status(200).json({auth: true, token: token, type: result.type });
+    res.status(200).json({auth: true, token: token, type: result[0].type });
 });
 
 module.exports = router;
